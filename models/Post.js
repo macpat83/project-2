@@ -3,7 +3,7 @@ const sequelize = require('../config/connection');
 // create our Post model
 class Post extends Model {
   static upvote(body, models) {
-    return models.Vote.create({
+    return models.Favorite.create({
       user_id: body.user_id,
       post_id: body.post_id
     }).then(() => {
@@ -18,8 +18,8 @@ class Post extends Model {
           'album_art',
           'created_at',
           [
-            sequelize.literal('(SELECT COUNT(*) FROM vote WHERE post.id = vote.post_id)'),
-            'vote_count'
+            sequelize.literal('(SELECT COUNT(*) FROM favorite WHERE post.id = favorite.post_id)'),
+            'favorite_count'
           ]
         ]
       });
