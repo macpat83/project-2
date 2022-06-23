@@ -11,7 +11,7 @@ router.get('/', (req, res) => {
         'id',
         'post_url',
         'album_title',
-        'album_art',
+        'albumart_url',
         'created_at',
       [sequelize.literal('(SELECT COUNT(*) FROM favorite WHERE post.id = favorite.post_id)'), 'favorite_count']
     ],
@@ -42,7 +42,7 @@ router.get('/:id', (req, res) => {
         'id',
         'post_url',
         'album_title',
-        'album_art',
+        'albumart_url',
         'created_at',
       [sequelize.literal('(SELECT COUNT(*) FROM favorite WHERE post.id = favorite.post_id)'), 'favorite_count']
     ],
@@ -83,10 +83,10 @@ router.get('/:id', (req, res) => {
 });
 
 router.post('/', (req, res) => {
-  // expects {title: 'Taskmaster goes public!', post_url: 'https://taskmaster.com/press', user_id: 1}
   Post.create({
-    title: req.body.title,
+    album_title: req.body.album_title,
     post_url: req.body.post_url,
+    albumart_url: req.body.albumart_url,
     user_id: req.body.user_id
   })
     .then(dbPostData => res.json(dbPostData))
