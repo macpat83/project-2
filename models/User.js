@@ -1,6 +1,6 @@
-const { DataTypes } = require('sequelize/types');
-const sequelize = require('../config/connection');
+const { Model, DataTypes } = require('sequelize');
 const bcrypt = require('bcrypt');
+const sequelize = require('../config/connection');
 
 //create User model
 class User extends Model {}
