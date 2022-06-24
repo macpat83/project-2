@@ -15,9 +15,10 @@ class Post extends Model {
         },
         attributes: [
           'id',
-          'post_url',
+          'album_artist',
           'album_title',
-          'album_art',
+          'albumart_url',
+          'review',
           'created_at',
           [
             sequelize.literal('(SELECT COUNT(*) FROM favorite WHERE post.id = favorite.post_id)'),
@@ -42,12 +43,9 @@ Post.init(
       type: DataTypes.STRING,
       allowNull: false
     },
-    post_url: {
+    album_artist: {
       type: DataTypes.STRING,
       allowNull: false,
-      validate: {
-        isURL: true
-      }
     },
     albumart_url: {
         type: DataTypes.STRING,
@@ -55,7 +53,11 @@ Post.init(
         validate: {
           isURL: true
         }
-      },  
+      },
+      review: {
+        type: DataTypes.STRING,
+        allowNull: false,
+      },
     user_id: {
       type: DataTypes.INTEGER,
       references: {
