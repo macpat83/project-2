@@ -1,24 +1,8 @@
 <ol class="post-list">
-    {{#each posts}}
+    {{#each posts as |post|}}
   <li>
-    <article class="post">
-      <div class="title">
-        <a href="{{albumart_url}}" target="_blank">{{title}}</a>
-        <span>({{albumart_url}})</span>
-        <a href="{{album_title}}" target="_blank">{{title}}</a>
-        <span>({{album_title}})</span>
-        <a href="{{album_artist}}" target="_blank">{{title}}</a>
-        <span>({{album_artist}})</span>
-        <a href="{{review}}" target="_blank">{{title}}</a>
-        <span>({{review}})</span>
-      </div>
-      <div class="meta">
-        {{favorite_count}} point(s) by {{user.username}} on
-        {{created_at}}
-        |
-        <a href="/post/{{id}}">{{comments.length}} comment(s)</a>
-      </div>
-    </article>
+    {{> post-info post}}
+    
   </li>
   {{/each}}
 </ol>
