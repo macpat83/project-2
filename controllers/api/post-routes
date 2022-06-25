@@ -1,6 +1,7 @@
 const router = require('express').Router();
 const sequelize = require('../../config/connection');
 const { Post, User, Favorite, Comment } = require('../../models');
+const withAuth = require('../../utils/auth');
 
 // get all users
 router.get('/', (req, res) => {
@@ -88,13 +89,13 @@ router.get('/:id', (req, res) => {
     });
 });
 
-router.post('/', (req, res) => {
+router.post('/', withAuth, (req, res) => {
   Post.create({
     album_title: req.body.album_title,
     album_artist: req.body.album_artist,
     albumart_url: req.body.albumart_url,
     review: req.body.review,
-    user_id: req.body.user_id
+    user_id: req.session.user_id
   })
     .then(dbPostData => res.json(dbPostData))
     .catch(err => {
@@ -103,7 +104,7 @@ router.post('/', (req, res) => {
     });
 });
 
-router.put('/favorite', (req, res) => {
+router.put('/favorite', withAuth, (req, res) => {
   // make sure the session exists first
   if (req.session) {
     // pass session id along with all destructured properties on req.body
@@ -116,7 +117,7 @@ router.put('/favorite', (req, res) => {
   }
 });
 
-router.put('/:id', (req, res) => {
+router.put('/:id', withAuth, (req, res) => {
   Post.update(
     {
       review: req.body.review
@@ -140,7 +141,7 @@ router.put('/:id', (req, res) => {
     });
 });
 
-router.delete('/:id', (req, res) => {
+router.delete('/:id', withAuth, (req, res) => {
   Post.destroy({
     where: {
       id: req.params.id
