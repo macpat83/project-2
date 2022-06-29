@@ -5,13 +5,13 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Musiposium</title>
-  <link rel="stylesheet" href="/stylesheets/style.css">
+  <link rel="stylesheet" href="public/stylesheets/styles.css">
 </head>
 
 <body>
-   <div class="wrapper">
+  <div>
     <header>
-      <h1>
+      <h1 class="text-2xl">
         <a href="/">Musiposium</a>
       </h1>
       <nav>
@@ -32,9 +32,9 @@
   </div>
 
 
-{{#if loggedIn}}
-<script src="/javascript/logout.js"></script>
-{{/if}}
+  {{#if loggedIn}}
+  <script src="/javascript/logout.js"></script>
+  {{/if}}
 </body>
 
 </html>
