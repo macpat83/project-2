@@ -120,7 +120,7 @@ router.put('/favorite', withAuth, (req, res) => {
 router.put('/:id', withAuth, (req, res) => {
   Post.update(
     {
-      review: req.body.review
+      albumart_url: req.body.albumart_url
     },
     {
       where: {
