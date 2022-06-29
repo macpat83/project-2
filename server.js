@@ -31,6 +31,7 @@ app.use(express.json());
 app.use(express.urlencoded({ extended: false }));
 app.use(express.static(path.join(__dirname, 'public')));
 
+// Tie in TailwindCSS stylesheets into application
 app.use('public/stylesheets', express.static('public/stylesheets'));
 
 app.use(require('./controllers/'));

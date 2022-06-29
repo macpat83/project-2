@@ -5,8 +5,8 @@
   "main": "server.js",
   "scripts": {
     "test": "jest",
-    "start": "node server.js ",
-    "build:css": "postcss public/stylesheets/tailwind.css -o public/stylesheets/styles.css"
+    "start": "npm run build-css && node server.js ",
+    "build-css": "tailwindcss build -i public/stylesheets/tailwind.css -o public/stylesheets/style.css"
   },
   "repository": {
     "type": "git",
