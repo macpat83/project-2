@@ -5,13 +5,58 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Musiposium</title>
-  
+  <!-- CSS only -->
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bulma@0.9.4/css/bulma.min.css">
   <link rel="stylesheet" href="/stylesheets/style.css">
 </head>
 
+<section class="hero is-link is-medium">
+  <!-- Hero head: will stick at the top -->
+  <div class="hero-head">
+    <nav class="navbar">
+      <div class="container">
+        <div class="navbar-brand">
+          <span class="navbar-burger" data-target="navbarMenuHeroA">
+            <span></span>
+            <span></span>
+            <span></span>
+          </span>
+        </div>
+        <div id="navbarMenuHeroA" class="navbar-menu">
+          <div class="navbar-end">
+            <span class="navbar-item">
+               {{#if loggedIn}}
+        <a href="/dashboard">dashboard</a>
+        <button id="logout" class="btn-no-style">logout</button>
+        {{else}}
+        <a href="/login">login</a>
+        {{/if}}
+              </a>
+            </span>
+          </div>
+        </div>
+      </div>
+    </nav>
+  </div>
+
+  <!-- Hero content: will be in the middle -->
+  <div class="hero-body">
+    <div class="container has-text-centered">
+      <p class="title">
+        Musiposium
+      </p>
+      <p class="subtitle">
+        An Album Review Site
+      </p>
+    </div>
+  </div>
+
+ 
+</section>
+
 <body>
    <div class="wrapper">
-    <header>
+    {{!-- <header>
       <h1>
         <a href="/">Musiposium</a>
       </h1>
@@ -23,7 +68,7 @@
         <a href="/login">login</a>
         {{/if}}
       </nav>
-    </header>
+    </header> --}}
     <main>
       {{{ body }}}
     </main>

@@ -2,13 +2,19 @@
   box-sizing: border-box;
 }
 
-body, html {
+body {
+  background: rgb(148,148,142);
+  background: linear-gradient(90deg, rgb(46, 92, 245) 0%, rgba(97, 164, 240, 0.591) 39%, rgba(162, 186, 252, 0.552) 100%);
+  
+  }
+
+/* body, html {
   height: 100%;
   padding: 0;
   margin: 0;
   font-family: sans-serif;
   color: #333;
-}
+} */
 
 a {
   text-decoration: none;
@@ -44,7 +50,7 @@ button:hover {
 textarea, input {
   padding: .5%;
   border-radius: 5px;
-  border: 1px solid #ccc;
+  border: 1px solid rgb(255, 255, 255);
 }
 
 textarea:focus, input:focus {
