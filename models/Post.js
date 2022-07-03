@@ -48,16 +48,16 @@ Post.init(
       allowNull: false,
     },
     albumart_url: {
-        type: DataTypes.STRING,
-        allowNull: false,
-        validate: {
-          isURL: true
-        }
-      },
-      review: {
-        type: DataTypes.STRING,
-        allowNull: false,
-      },
+      type: DataTypes.STRING,
+      allowNull: false,
+      validate: {
+        isURL: true
+      }
+    },
+    review: {
+      type: DataTypes.STRING,
+      allowNull: false,
+    },
     user_id: {
       type: DataTypes.INTEGER,
       references: {

@@ -1,13 +1,61 @@
 const router = require('express').Router();
 const sequelize = require('../config/connection');
-const { Post, User, Comment } = require('../models');
-const withAuth = require('../utils/auth');
+const { Post, User, Comment, Favorite } = require('../models');
 
-router.get('/', withAuth, (req, res) => {
+router.get('/', (req, res) => {
+  console.log(req.session);
   Post.findAll({
+    attributes: [
+      'id',
+      'album_artist',
+      'album_title',
+      'albumart_url',
+      'review',
+      'created_at',
+      [sequelize.literal('(SELECT COUNT(*) FROM favorite WHERE favorite.id = favorite.post_id)'), 'favorite_count']
+    ],
+    include: [
+      {
+        model: Comment,
+        attributes: ['id', 'comment_text', 'post_id', 'user_id', 'created_at'],
+        include: {
+          model: User,
+          attributes: ['username']
+        }
+      },
+      {
+        model: User,
+        attributes: ['username']
+      }
+    ]
+  })
+    .then(dbPostData => {
+      // pass a single post object into the homepage template
+      const posts = dbPostData.map(post => post.get({ plain: true }));
+      res.render('homepage', {
+        posts,
+        loggedIn: req.session.loggedIn
+      });
+    })
+    .catch(err => {
+      console.log(err);
+      res.status(500).json(err);
+    });
+});
+
+router.get('/login', (req, res) => {
+  if (req.session.loggedIn) {
+    res.redirect('/');
+    return;
+  }
+
+  res.render('login');
+});
+
+router.get('/post/:id', (req, res) => {
+  Post.findOne({
     where: {
-      // use the ID from the session
-      user_id: req.session.user_id
+      id: req.params.id
     },
     attributes: [
       'id',
@@ -16,7 +64,7 @@ router.get('/', withAuth, (req, res) => {
       'albumart_url',
       'review',
       'created_at',
-    [sequelize.literal('(SELECT COUNT(*) FROM favorite WHERE post.id = favorite.post_id)'), 'favorite_count']
+      [sequelize.literal('(SELECT COUNT(*) FROM favorite WHERE favorite.id = favorite.post_id)'), 'favorite_count']
     ],
     include: [
       {
@@ -34,58 +82,24 @@ router.get('/', withAuth, (req, res) => {
     ]
   })
     .then(dbPostData => {
-      // serialize data before passing to template
-      const posts = dbPostData.map(post => post.get({ plain: true }));
-      res.render('dashboard', { posts, loggedIn: true });
+      if (!dbPostData) {
+        res.status(404).json({ message: 'No post found with this id' });
+        return;
+      }
+
+      // serialize the data
+      const post = dbPostData.get({ plain: true });
+
+      // pass data to template
+      res.render('single-post', {
+        post,
+        loggedIn: req.session.loggedIn
+      });
     })
     .catch(err => {
       console.log(err);
       res.status(500).json(err);
     });
 });
-
-router.get('/edit/:id', withAuth, (req, res) => {
-  Post.findByPk(req.params.id, {
-    attributes: [
-      'id',
-      'album_artist',
-      'album_title',
-      'albumart_url',
-      'review',
-      'created_at',
-    [sequelize.literal('(SELECT COUNT(*) FROM favorite WHERE post.id = favorite.post_id)'), 'favorite_count']
-    ],
-    include: [
-      {
-        model: Comment,
-        attributes: ['id', 'comment_text', 'post_id', 'user_id', 'created_at'],
-        include: {
-          model: User,
-          attributes: ['username']
-        }
-      },
-      {
-        model: User,
-        attributes: ['username']
-      }
-    ]
-  })
-    .then(dbPostData => {
-      if (dbPostData) {
-        const post = dbPostData.get({ plain: true });
-        
-        res.render('edit-post', {
-          post,
-          loggedIn: true
-        });
-      } else {
-        res.status(404).end();
-      }
-    })
-    .catch(err => {
-      res.status(500).json(err);
-    });
-});
-
 
 module.exports = router;

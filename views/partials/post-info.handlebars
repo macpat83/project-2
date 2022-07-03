@@ -1,18 +1,24 @@
 <article class="post">
-      <div class="title">
-        <a href="{{albumart_url}}" target="_blank">{{title}}</a>
-        <span>({{albumart_url}})</span>
-        <a href="{{album_title}}" target="_blank">{{title}}</a>
-        <span>({{album_title}})</span>
-        <a href="{{album_artist}}" target="_blank">{{title}}</a>
-        <span>({{album_artist}})</span>
-        <a href="{{review}}" target="_blank">{{title}}</a>
-        <span>({{review}})</span>
+  <div class="title">
+    <div class="columns">
+      <div class="column"><a href="{{albumart_url}}" target="_blank">{{title}}</a>
+        <img src="{{albumart_url}}">
       </div>
-      <div class="meta">
-        {{favorite_count}} {{format_plural "favorite" favorite_count}} by {{user.username}} on
-        {{format_date created_at}}
-        |
-        <a href="/post/{{id}}">{{comments.length}} {{format_plural "comment" comments.length}}</a>
+      <div class="column">Album Title<a href="{{album_title}}" target="_blank">{{title}}</a>
+        <span>{{album_title}}</span>
       </div>
-    </article>
+      <div class="column">Album Artist<a href="{{album_artist}}" target="_blank">{{title}}</a>
+        <span>{{album_artist}}</span>
+      </div>
+      <div class="column">Review<a href="{{review}}" target="_blank">{{title}}</a>
+        <span>{{review}}</span>
+      </div>
+    </div>
+  </div>
+  <div class="meta">
+    {{favorite_count}} {{format_plural "favorite" favorite_count}} by {{user.username}} on
+    {{format_date created_at}}
+    |
+    <a href="/post/{{id}}">{{comments.length}} {{format_plural "comment" comments.length}}</a>
+  </div>
+</article>

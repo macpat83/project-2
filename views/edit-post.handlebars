@@ -6,10 +6,10 @@
   <form class="edit-post-form">
     <div>
       Album Art <input name="album-art" type="url" value="{{post.albumart_url}}"></div>
-      <div> Album Title<input name="album-title" type="text" value="{{post.album_title}}"> </div>
-      <div>Album Artist<input name="album-artist" type="text" value="{{post.album_artist}}"> </div>
-      <div>Album Review<input name="album-review" type="text" value="{{post.review}}"> </div>
-    
+    <div> Album Title<input name="album-title" type="text" value="{{post.album_title}}"> </div>
+    <div>Album Artist<input name="album-artist" type="text" value="{{post.album_artist}}"> </div>
+    <div>Album Review<input name="album-review" type="text" value="{{post.review}}"> </div>
+
 
     <div>
       {{post.favorite_count}} {{format_plural "favorite" post.favorite_count}} by you on {{format_date post.created_at}}
