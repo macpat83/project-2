@@ -4,7 +4,7 @@
 
 body {
   background: rgb(148,148,142);
-  background: linear-gradient(90deg, rgb(46, 92, 245) 0%, rgba(97, 164, 240, 0.591) 39%, rgba(162, 186, 252, 0.552) 100%);
+  background: linear-gradient(90deg, rgb(217, 243, 72) 0%, rgba(241, 248, 145, 0.591) 39%, rgba(240, 245, 200, 0.552) 100%);
   
   }
 
@@ -16,11 +16,17 @@ body {
   color: #333;
 } */
 
+.hero {
+  background-image: url("../images/image-20150416-5628-6s1t8.avif");
+  background-size: cover;
+  height: 350px;
+  width: 100%
+
+}
 a {
   text-decoration: none;
-  color: #225ca3;
+  color: #ffffff;
   font-weight: bold;
-  transition: color .1s;
 }
 
 a:hover {
