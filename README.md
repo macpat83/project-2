@@ -12,7 +12,7 @@ Musiposeum is a place where music lovers everywhere can explore/share a compendi
 
 ## Visuals
 
-![landing page](/public/images/Landing%20Page.png)
+![landing page](/public/images/Landing-Page.png)
 
 ![login/signup page](/public/images/Login-Sign-Up.png)
 
