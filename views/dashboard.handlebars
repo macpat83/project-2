@@ -1,26 +1,3 @@
-{{!-- <section>
-  <h2>Create New Post</h2>
-
-  <form class="new-post-form">
-    <div>
-      <label for="album-art">Album Art</label>
-      <input type="image-url" id="album-art" name="album-art" />
-    </div>
-    <div>
-      <label for="album-title">Album Title</label>
-      <input id="text" name="album-title" />
-    </div>
-    <div>
-      <label for="album-artist">Album Artist</label>
-      <input id="text" name="album-artist" />
-    </div>
-    <div>
-      <label for="album-review">Album Review</label>
-      <input id="text" name="album-review" />
-    </div>
-    <button type="submit" class="btn">Create</button>
-  </form>
-</section> --}}
 <section class="text-gray-400 bg-gray-900 body-font">
   <div class="container px-5 py-24 mx-auto flex flex-wrap items-top">
     <div class="lg:w-3/5 md:w-1/2 md:pr-16 lg:pr-0 pr-0">
@@ -28,7 +5,7 @@
     <div
       class="lg:w-2/6 md:w-1/2 bg-gray-800 bg-opacity-50 rounded-lg p-8 flex flex-col md:ml-auto w-full mt-10 md:mt-0">
       <form class="new-post-form">
-        <h2 class="text-white text-lg font-medium title-font mb-5">Create a Post</h2>
+        <h2 class="text-white text-lg title is-3 title-font mb-5">Create a Post</h2>
 
         <div class="relative mb-4">
           <label for="album-art" class="leading-7 text-sm text-gray-400">Album Art URL</label>
@@ -65,5 +42,18 @@
   </div>
 </section>
 
+{{#if posts.length}}
+<section>
+  <h2 class="title is-3">Your Posts</h2>
+  <ol>
+    {{#each posts as |post|}}
+    <li>
+      {{> post-info post}}
+      <a href="/dashboard/edit/{{post.id}}" class="edit-link">Edit post</a>
+    </li>
+    {{/each}}
+  </ol>
+</section>
+{{/if}}
 
 <script src="/javascript/add-post.js"></script>
