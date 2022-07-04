@@ -12,13 +12,11 @@ Musiposeum is a place where music lovers everywhere can explore/share a compendi
 
 ## Visuals
 
-![landing page](https://gyazo.com/675d204eb039e5c20f9dcd0938126eba)
+![landing page](/public/images/Landing%20Page.png)
 
-![login/signup page](https://gyazo.com/1862a740fd0e1fcf184ec2e87b6f9e2e)
+![login/signup page](/public/images/Login-Sign-Up.png)
 
-![dashboard page](https://gyazo.com/b8bdf6eac6349a404de4333170226d36)
-
-![dashboard+post](https://gyazo.com/b0f4258c878b3815f8043fc0b43e95ee)
+![dashboard page](/public/images/Dashboard.png)
 
 ## Technology/Framework used
 

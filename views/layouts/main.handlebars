@@ -41,43 +41,17 @@
       </div>
   </div>
   </nav>
-
-
-
-
-  {{!-- <nav class="navbar">
-    <div class="container">
-      <div class="navbar-brand">
-        <span class="navbar-burger" data-target="navbarMenuHeroA">
-          <span></span>
-          <span></span>
-          <span></span>
-        </span>
-      </div>
-      <div id="navbarMenuHeroA" class="navbar-menu">
-        <div class="navbar-end">
-          <span class="navbar-item">
-            {{#if loggedIn}}
-            <a href="/dashboard">dashboard</a>
-            <button id="logout" class="btn-no-style">logout</button>
-            {{else}}
-            <a href="/login">login</a>
-            {{/if}}
-            </a>
-          </span>
-        </div>
-      </div>
-    </div>
-  </nav> --}}
   </div>
 
   <!-- Hero content: will be in the middle -->
   <div class="hero-body">
     <div class="container">
-      <p class="title has-text-white is-size-1 has-text-weight-bold">
+      <a href="/">
+      <p class="title has-text-info is-size-1 has-text-weight-bold">
         Musiposium
       </p>
-      <p class="subtitle is-size-2">
+      </a>
+      <p class="subtitle is-size-2 has-text-info">
         An Album Review Site
       </p>
     </div>
@@ -88,19 +62,6 @@
 
 <body>
   <div class="wrapper">
-    {{!-- <header>
-      <h1>
-        <a href="/">Musiposium</a>
-      </h1>
-      <nav>
-        {{#if loggedIn}}
-        <a href="/dashboard">dashboard</a>
-        <button id="logout" class="btn-no-style">logout</button>
-        {{else}}
-        <a href="/login">login</a>
-        {{/if}}
-      </nav>
-    </header> --}}
     <main>
       {{{ body }}}
     </main>
@@ -120,16 +81,6 @@
           <p>All rights reserved © Musiposium 2022</p>
           <div class="py-2 is-hidden-tablet"></div>
           <div class="ml-auto">
-            {{!-- <a class="mr-4 is-inline-block" href="#">
-              <img src="bulma-plain-assets/socials/facebook.svg" alt=""></a>
-            <a class="mr-4 is-inline-block" href="#">
-              <img src="bulma-plain-assets/socials/twitter.svg" alt=""></a>
-            <a class="mr-4 is-inline-block" href="#">
-              <img src="bulma-plain-assets/socials/github.svg" alt=""></a>
-            <a class="mr-4 is-inline-block" href="#">
-              <img src="bulma-plain-assets/socials/instagram.svg" alt=""></a>
-            <a class="is-inline-block" href="#">
-              <img src="bulma-plain-assets/socials/linkedin.svg" alt=""></a> --}}
           </div>
         </div>
       </div>
