@@ -1,0 +1,145 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Musiposium</title>
+  <!-- CSS only -->
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bulma@0.9.4/css/bulma.min.css">
+  <link rel="stylesheet" href="/stylesheets/style.css">
+</head>
+
+<section class="hero is-link is-small">
+  <!-- Hero head: will stick at the top -->
+  <div class="hero-head is-white">
+    <nav class="navbar py-4">
+      <div class="container">
+        <div class="navbar-brand">
+          <a class="navbar-item" href="/">
+            <img class="image" src="/images/icon_chord.svg" alt="Musiposium-logo"> Musiposium
+          </a>
+          <a class="navbar-burger" role="button" aria-label="menu" aria-expanded="false">
+            <span aria-hidden="true"></span>
+            <span aria-hidden="true"></span>
+            <span aria-hidden="true"></span>
+          </a>
+        </div>
+        <div id="navbarMenuHeroA" class="navbar-menu">
+          <div class="navbar-end">
+            <span class="navbar-item has-text-white is-size-4">
+               {{#if loggedIn}}
+        <a href="/dashboard">dashboard</a>
+        <button id="logout" class="btn-no-style">logout</button>
+        {{else}}
+        <a href="/login">Login</a>
+        {{/if}}
+              </a>
+            </span>
+          </div>
+        </div>
+      </div>
+  </div>
+  </nav>
+
+
+
+
+  {{!-- <nav class="navbar">
+    <div class="container">
+      <div class="navbar-brand">
+        <span class="navbar-burger" data-target="navbarMenuHeroA">
+          <span></span>
+          <span></span>
+          <span></span>
+        </span>
+      </div>
+      <div id="navbarMenuHeroA" class="navbar-menu">
+        <div class="navbar-end">
+          <span class="navbar-item">
+            {{#if loggedIn}}
+            <a href="/dashboard">dashboard</a>
+            <button id="logout" class="btn-no-style">logout</button>
+            {{else}}
+            <a href="/login">login</a>
+            {{/if}}
+            </a>
+          </span>
+        </div>
+      </div>
+    </div>
+  </nav> --}}
+  </div>
+
+  <!-- Hero content: will be in the middle -->
+  <div class="hero-body">
+    <div class="container">
+      <p class="title has-text-white is-size-1 has-text-weight-bold">
+        Musiposium
+      </p>
+      <p class="subtitle is-size-2">
+        An Album Review Site
+      </p>
+    </div>
+  </div>
+
+
+</section>
+
+<body>
+  <div class="wrapper">
+    {{!-- <header>
+      <h1>
+        <a href="/">Musiposium</a>
+      </h1>
+      <nav>
+        {{#if loggedIn}}
+        <a href="/dashboard">dashboard</a>
+        <button id="logout" class="btn-no-style">logout</button>
+        {{else}}
+        <a href="/login">login</a>
+        {{/if}}
+      </nav>
+    </header> --}}
+    <main>
+      {{{ body }}}
+    </main>
+    <footer class="section">
+      <div class="container">
+        <div class="pb-5 is-flex is-flex-wrap-wrap is-justify-content-between is-align-items-center">
+          <div class="mr-auto mb-2">
+            <a class="is-inline-block" href="#">
+              <img class="image" src="/images/icon_chord.svg" alt="Musiposium-logo" width="25">
+            </a>
+          </div>
+        </div>
+      </div>
+      <div class="pt-5" style="border-top: 1px solid #dee2e6;"></div>
+      <div class="container">
+        <div class="is-flex-tablet is-justify-content-between is-align-items-center">
+          <p>All rights reserved © Musiposium 2022</p>
+          <div class="py-2 is-hidden-tablet"></div>
+          <div class="ml-auto">
+            {{!-- <a class="mr-4 is-inline-block" href="#">
+              <img src="bulma-plain-assets/socials/facebook.svg" alt=""></a>
+            <a class="mr-4 is-inline-block" href="#">
+              <img src="bulma-plain-assets/socials/twitter.svg" alt=""></a>
+            <a class="mr-4 is-inline-block" href="#">
+              <img src="bulma-plain-assets/socials/github.svg" alt=""></a>
+            <a class="mr-4 is-inline-block" href="#">
+              <img src="bulma-plain-assets/socials/instagram.svg" alt=""></a>
+            <a class="is-inline-block" href="#">
+              <img src="bulma-plain-assets/socials/linkedin.svg" alt=""></a> --}}
+          </div>
+        </div>
+      </div>
+    </footer>
+  </div>
+
+
+  {{#if loggedIn}}
+  <script src="/javascript/logout.js"></script>
+  {{/if}}
+</body>
+
+</html>

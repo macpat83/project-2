@@ -1,0 +1,59 @@
+<section class="text-gray-400 bg-gray-900 body-font">
+  <div class="container px-5 py-24 mx-auto flex flex-wrap items-top">
+    <div class="lg:w-3/5 md:w-1/2 md:pr-16 lg:pr-0 pr-0">
+    </div>
+    <div
+      class="lg:w-2/6 md:w-1/2 bg-gray-800 bg-opacity-50 rounded-lg p-8 flex flex-col md:ml-auto w-full mt-10 md:mt-0">
+      <form class="new-post-form">
+        <h2 class="text-white text-lg title is-3 title-font mb-5">Create a Post</h2>
+
+        <div class="relative mb-4">
+          <label for="album-art" class="leading-7 text-sm text-gray-400">Album Art URL</label>
+          <input type="text" id="album-art" name="album-art" placeholder="Enter Album Art URL"
+            class="w-full bg-gray-600 bg-opacity-20 focus:bg-transparent focus:ring-2 focus:ring-indigo-900 rounded border border-gray-600 focus:border-indigo-500 text-base outline-none text-gray-100 py-1 px-3 leading-8 transition-colors duration-200 ease-in-out">
+        </div>
+
+        <div class="relative mb-4">
+          <label for="album-title" class="leading-7 text-sm text-gray-400">Album Title</label>
+          <input type="text" id="album-title" name="album-title" placeholder="Album Title"
+            class="w-full bg-gray-600 bg-opacity-20 focus:bg-transparent focus:ring-2 focus:ring-indigo-900 rounded border border-gray-600 focus:border-indigo-500 text-base outline-none text-gray-100 py-1 px-3 leading-8 transition-colors duration-200 ease-in-out">
+        </div>
+
+        <div class="relative mb-4">
+          <label for="album-artist" class="leading-7 text-sm text-gray-400">Album Artist</label>
+          <input type="text" id="album-artist" name="album-artist" placeholder="Album Artist"
+            class="w-full bg-gray-600 bg-opacity-20 focus:bg-transparent focus:ring-2 focus:ring-indigo-900 rounded border border-gray-600 focus:border-indigo-500 text-base outline-none text-gray-100 py-1 px-3 leading-8 transition-colors duration-200 ease-in-out">
+        </div>
+
+        <div class="relative mb-4">
+          <label for="album-review" class="leading-7 text-sm text-gray-400">Album Review</label>
+          <input type="text" id="album-review" name="album-review" placeholder="Album Review"
+            class="w-full bg-gray-600 bg-opacity-20 focus:bg-transparent focus:ring-2 focus:ring-indigo-900 rounded border border-gray-600 focus:border-indigo-500 text-base outline-none text-gray-100 py-1 px-3 leading-8 transition-colors duration-200 ease-in-out">
+        </div>
+
+        <div>
+          <input
+            class="text-white bg-indigo-500 border-0 py-2 px-8 focus:outline-none hover:bg-indigo-600 rounded text-lg"
+            type="submit" value="Create">
+        </div>
+
+      </form>
+    </div>
+  </div>
+</section>
+
+{{#if posts.length}}
+<section>
+  <h2 class="title is-3">Your Posts</h2>
+  <ol>
+    {{#each posts as |post|}}
+    <li>
+      {{> post-info post}}
+      <a href="/dashboard/edit/{{post.id}}" class="edit-link">Edit post</a>
+    </li>
+    {{/each}}
+  </ol>
+</section>
+{{/if}}
+
+<script src="/javascript/add-post.js"></script>
